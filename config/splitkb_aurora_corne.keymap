@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
 #define LOWER 1
 #define RAISE 2
 #define THIRD 3
@@ -30,15 +31,15 @@
                 };
                 LOWER {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  1    |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// | LSHFT| BT1   | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | LCTRL| BTCLR |     |     |     |     |   |     |     |     |     |     |      |
-//                      | GUI |     | SPC |   | TAB |     | ALT |
+// |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
+// | LSHFT|     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
+// | LCTRL|     |     |     |     |     |   |     |     |     |     |     |      |
+//                    | GUI |     | SPC |   | TAB |     | ALT |
                         bindings = <
-   &kp ESC    &kp N1        &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8  &kp N9    &kp N0 &kp DEL
-   &kp LSHFT  &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans &trans
-   &kp LCTRL  &bt BT_CLR    &trans       &trans       &trans       &trans         &trans   &trans   &trans  &trans    &trans &trans
-                                         &kp LGUI     &trans       &kp SPACE      &kp TAB  &mo THIRD    &kp RALT
+   &kp ESC    &kp N1  &kp N2  &kp N3   &kp N4   &kp N5        &kp N6   &kp N7   &kp N8  &kp N9    &kp N0 &kp DEL
+   &kp LSHFT  &trans  &trans  &trans   &trans   &trans        &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans &trans
+   &kp LCTRL  &trans  &trans  &trans   &trans   &trans        &trans   &trans   &trans  &trans    &trans &trans
+                              &kp LGUI &trans   &kp SPACE     &kp TAB  &mo THIRD    &kp RALT
                         >;
                 };
 
@@ -57,15 +58,15 @@
                 };
                 THIRD {
 // -----------------------------------------------------------------------------------------
-// |  F1  | F2  | F3  | F4  | F5  | F6  |   | F7      | F8          | F9  | F10 | F11 | F12  |
-// | CTRL |     |     |     |     |     |   | K_MUTE  | K_VOL_UP    |     |     |     |      |
-// | SHFT |     |     |     |     |     |   |         | K_VOL_DN    |     |     |     |      |
-//                    | GUI |     | SPC |   | TAB     |             | ALT |
+// |  F1  | F2    | F3  | F4  | F5  | F6  |   | F7      | F8          | F9      | F10     | F11     | F12     |
+// | CTRL | BT1   | BT2 | BT3 | BT4 | BT5 |   | K_MUTE  | K_VOL_UP    | RGB_TOG | RGB_HUI | RGB_SAI | RGB_EFF |
+// | SHFT | BTCLR |     |     |     |     |   |         | K_VOL_DN    |         | RGB_HUD | RGB_SAD | RGB_EFR |
+//                      | GUI |     | SPC |   | TAB     |             | ALT     |
                         bindings = <
-   &kp F1     &kp F2  &kp F3  &kp F4    &kp F5  &kp F6      &kp F7      &kp F8        &kp F9  &kp F10 &kp F11 &kp F12    
-   &kp LSHFT  &trans  &trans  &trans    &trans  &trans      &kp K_MUTE  &kp K_VOL_UP  &trans  &trans  &trans  &trans
-   &kp LCTRL  &trans  &trans  &trans    &trans  &trans      &trans      &kp K_VOL_DN  &trans  &trans  &trans  &kp ENTER
-                              &kp LGUI  &trans  &kp SPACE   &kp TAB     &trans        &kp RALT
+   &kp F1     &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7      &kp F8        &kp F9  &kp F10 &kp F11 &kp F12    
+   &kp LSHFT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp K_MUTE  &kp K_VOL_UP  &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_EFF
+   &kp LCTRL  &bt BT_CLR    &trans        &trans        &trans        &trans        &trans      &kp K_VOL_DN  &trans          &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_EFR
+                                          &kp LGUI      &trans        &kp SPACE     &kp TAB     &trans        &kp RALT
                         >;
                 };
         };
